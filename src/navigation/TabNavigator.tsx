@@ -20,7 +20,7 @@ export default function TabNavigator() {
         >
             <Tab.Screen name="Home"    component={HomeScreen}    options={{ tabBarLabel: 'ホーム' }} />
             <Tab.Screen name="Calendar"component={CalendarScreen}options={{ tabBarLabel: '予定一覧' }} />
-            <Tab.Screen name="Settings"component={SettingsScreen}options={{ tabBarLabel: '設定' }} />
+            <Tab.Screen name="Settings"component={SettingsScreen}options={{ tabBarLabel: '設定/プロフィール' }} />
             <Tab.Screen name="Error"   component={ErrorScreen}   options={{ tabBarLabel: 'エラー画面' }} />
         </Tab.Navigator>
     );
