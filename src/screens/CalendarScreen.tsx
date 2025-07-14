@@ -1,17 +1,32 @@
 // src/screens/CalendarScreen.tsx
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useContext } from 'react';
+import { StyleSheet, Text } from 'react-native';
+import ShadowView from '../components/ShadowView';
+import { ThemeContext } from '../components/ThemeContext';
 
 export default function HomeScreen() {
+    const { theme } = useContext(ThemeContext);
+    const textColor = theme === 'light' ? '#000' : '#fff';
+
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>📅 予定一覧（カレンダー）</Text>
-            <Text>— ここにカレンダービューを配置 —</Text>
-        </View>
+        <ShadowView style={[styles.container, { backgroundColor: theme === 'light' ? '#fff' : '#333' }]}>
+            <Text style={[styles.title, { color: textColor }]}>📅 予定一覧（カレンダー）</Text>
+            <Text style={{ color: textColor }}>— ここにカレンダービューを配置 —</Text>
+        </ShadowView>
     );
 }
 
-const styles = StyleSheet.create({
-    container: { flex:1, alignItems:'center', justifyContent:'center', padding:16 },
-    title: { fontSize:18, marginBottom:12 },
+    const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 16,
+        margin: 16, // シャドーが見えるよう余白を確保
+        borderRadius: 8,
+    },
+    title: {
+        fontSize: 18,
+        marginBottom: 12,
+    },
 });
